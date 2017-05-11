@@ -1,5 +1,17 @@
 # order-routing-problem
 
+**Antes de começar**:
+
+* Fazer uma coisa de cada vez, baby steps! Desenvolver de maneira incremental.
+* Pratique TDD
+* Tentar resolver as coisas da maneira mais simples possivel para forçar escrever testes que vc n
+  pensou ainda.
+* Lembrar de refatorar após cada vez que o teste ficar verde
+* Qual o próximo passo? o proximo passo é sempre o mais simples
+* Se lembrar de red green refactor!!!
+
+![](https://media.giphy.com/media/GHycyakNPWSoo/giphy.gif)
+
 ## Introduction 
 
 An electronics company is planning to sell products worldwide. In order to supply the new demand, the company is going to create multiple warehouses around the world:

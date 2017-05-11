@@ -9,6 +9,7 @@
 * Lembrar de refatorar após cada vez que o teste ficar verde
 * Qual o próximo passo? o proximo passo é sempre o mais simples
 * Se lembrar de red green refactor!!!
+* Make it work then make it fast
 
 ![](https://media.giphy.com/media/GHycyakNPWSoo/giphy.gif)
 

@@ -4,18 +4,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class RoutinLogicTest {
 
-//    Test Case #1 - Standard
-//
-//    Input
-//
-//    Brazil Keyboard 2
-//    France Mouse 2
-//
-//    DHL, None
-//    Keyboard 2
-//    Output
-//
-//    Brazil Keyboard 2
     RoutingLogic routingLogic = new RoutingLogic();
 
     @Test
@@ -28,6 +16,13 @@ public class RoutinLogicTest {
     public void ifIsAShippingMethodReturnsTrue(){
         boolean result = routingLogic.isAShippingMethod("DHL");
         assertThat(result, equalTo(true));
+    }
+
+    @Test
+    public void returnExpectedOutputForStandardOrderInput(){
+        String userInput = "Brazil Keyboard 2\nFrance Mouse 2\n\nDHL, None\nKeyboard 2";
+        String result = routingLogic.fulfillOrder(userInput);
+        assertThat(result, equalTo("Brazil Keyboard 2"));
     }
 
 }

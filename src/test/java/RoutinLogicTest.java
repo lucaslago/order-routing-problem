@@ -20,9 +20,50 @@ public class RoutinLogicTest {
 
     @Test
     public void returnExpectedOutputForStandardOrderInput(){
-        String userInput = "Brazil Keyboard 2\nFrance Mouse 2\n\nDHL, None\nKeyboard 2";
+        String userInput = "Brazil Keyboard 2\n" +
+                           "France Mouse 2\n\n" +
+                           "DHL, None\n" +
+                           "Keyboard 2";
         String result = routingLogic.fulfillOrder(userInput);
         assertThat(result, equalTo("Brazil Keyboard 2"));
     }
 
+    @Test
+    public void returnExpectedOutputForShippingMethodTestingOrderInput(){
+        String userInput = "Brazil Mouse 2\n" +
+                           "South Africa Mouse 2\n\n" +
+                           "UPS, None\n" +
+                           "Mouse 1";
+        String result = routingLogic.fulfillOrder(userInput);
+        assertThat(result, equalTo("South Africa Mouse 1"));
+    }
+
+    @Test
+    public void returnExpectedOutputForCapacityTestingOrderInput(){
+        String userInput = "Canada Mouse 4\n" +
+                           "Canada Keyboard 3\n" +
+                           "France Keyboard 2\n\n" +
+                           "FedEx, None\n" +
+                           "Mouse 4\n" +
+                           "Keyboard 3";
+        String result = routingLogic.fulfillOrder(userInput);
+        assertThat(result, equalTo("Canada Mouse 4\n" +
+                                            "Canada Keyboard 1\n" +
+                                            "France Keyboard 2"));
+    }
+
+    @Test
+    public void returnExpectedOutputForLargestInventoryPriorityTestingOrderInput(){
+        String userInput = "China Mouse 4\n" +
+                           "Brazil Mouse 3\n" +
+                           "Brazil Keyboard 3\n" +
+                           "France Mouse 2\n" +
+                           "France Keyboard 2\n\n" +
+                           "DHL, LargestInventory\n" +
+                           "Mouse 1\n" +
+                           "Keyboard 1";
+        String result = routingLogic.fulfillOrder(userInput);
+        assertThat(result, equalTo("Brazil Mouse 1\n" +
+                                            "Brazil Keyboard 1"));
+    }
 }

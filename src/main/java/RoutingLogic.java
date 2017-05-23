@@ -14,17 +14,43 @@ public class RoutingLogic {
     public String fulfillOrder(String userInput) {
         String warehouseOutput = "";
         String splittedUserInput[] = userInput.split("\n");
+
+
         List<Warehouse> inputWarehouses = new ArrayList<>();
+        Order inputOrder = new Order();
 
         for(String input: splittedUserInput){
 
             String splittedUserInputLine[] = input.split(" ");
+
             if(isAWarehouse(splittedUserInputLine[0])){
                 inputWarehouses.add(new Warehouse(splittedUserInputLine[0], splittedUserInputLine[1], Integer.parseInt(splittedUserInputLine[2])));
+                System.out.print("Warehouse: " +splittedUserInputLine[0]+splittedUserInputLine[1]+splittedUserInputLine[2] + "\n");
+
+            } else if(isAShippingMethod(splittedUserInputLine[0].split(",")[0])) {
+                inputOrder.shippingMethod = splittedUserInputLine[0];
+                inputOrder.strategy = splittedUserInputLine[1];
+                System.out.print("Shipping method: " +splittedUserInputLine[0]+splittedUserInputLine[1]+"\n");
+
+            } else if(splittedUserInputLine[0] != "" && splittedUserInputLine[0] != null){
+                System.out.print("Outro: " + splittedUserInputLine.length + "\n");
+                System.out.print("hehe:"+splittedUserInputLine[0]+ "\n");
+
+            }
+//            } else if(splittedUserInputLine[0] != ""){
+//                inputOrder.product = splittedUserInputLine[0];
+//                inputOrder.quantity = Integer.parseInt(splittedUserInputLine[1]);
+//            }
+
+            for(Warehouse warehouse: inputWarehouses){
+                if(warehouse.product.equals(inputOrder.product) && warehouse.quantity == inputOrder.quantity){
+                    //return warehouse.name + " " + warehouse.product + " " + warehouse.quantity;
+                }
             }
 
-            System.out.print(input + "/");
+//            System.out.print(input + "/");
         }
+
         if(userInput.equals("Brazil Keyboard 2\nFrance Mouse 2\n\nDHL, None\nKeyboard 2")) {
             warehouseOutput = "Brazil Keyboard 2";
         } else if(userInput.equals("Brazil Mouse 2\nSouth Africa Mouse 2\n\nUPS, None\nMouse 1")) {

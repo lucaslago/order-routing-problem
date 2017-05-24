@@ -32,9 +32,9 @@ public class RoutingLogic {
                 inputOrder.strategy = splittedUserInputLine[1];
                 System.out.print("Shipping method: " +splittedUserInputLine[0]+splittedUserInputLine[1]+"\n");
 
-            } else if(splittedUserInputLine[0] != "" && splittedUserInputLine[0] != null){
-                System.out.print("Outro: " + splittedUserInputLine.length + "\n");
-                System.out.print("hehe:"+splittedUserInputLine[0]+ "\n");
+            } else if(splittedUserInputLine[0].length() > 1){
+                inputOrder.product = splittedUserInputLine[0];
+                inputOrder.quantity = Integer.parseInt(splittedUserInputLine[1]);
 
             }
 //            } else if(splittedUserInputLine[0] != ""){
@@ -44,11 +44,10 @@ public class RoutingLogic {
 
             for(Warehouse warehouse: inputWarehouses){
                 if(warehouse.product.equals(inputOrder.product) && warehouse.quantity == inputOrder.quantity){
-                    //return warehouse.name + " " + warehouse.product + " " + warehouse.quantity;
+                    return warehouse.name + " " + warehouse.product + " " + warehouse.quantity;
                 }
             }
 
-//            System.out.print(input + "/");
         }
 
         if(userInput.equals("Brazil Keyboard 2\nFrance Mouse 2\n\nDHL, None\nKeyboard 2")) {

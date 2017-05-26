@@ -4,7 +4,7 @@ import java.util.List;
 public class RoutingLogic {
 
     public boolean isAWarehouse(String warehouseName){
-        return DefaultWarehouses.getDefaultWarehouses().contains(warehouseName);
+        return DefaultWarehouses.getDefaultWarehouses().stream().anyMatch(w -> w.name.equals(warehouseName));
     }
 
     public boolean isAShippingMethod(String shippingMethodTitle){
@@ -32,7 +32,11 @@ public class RoutingLogic {
                 inputOrder.strategy = splittedUserInputLine[1];
                 System.out.print("Shipping method: " +splittedUserInputLine[0]+splittedUserInputLine[1]+"\n");
 
-            } else if(splittedUserInputLine[0].length() > 1){
+            } else if(splittedUserInputLine.length >= 4){
+                inputWarehouses.add(new Warehouse(splittedUserInputLine[0] + " " + splittedUserInputLine[1], splittedUserInputLine[2], Integer.parseInt(splittedUserInputLine[3])));
+                System.out.print("Warehouse: " +splittedUserInputLine[0]+splittedUserInputLine[1]+splittedUserInputLine[2] + "\n");
+
+            } else if(splittedUserInputLine.length >= 2){
                 inputOrder.product = splittedUserInputLine[0];
                 inputOrder.quantity = Integer.parseInt(splittedUserInputLine[1]);
 
@@ -43,8 +47,8 @@ public class RoutingLogic {
 //            }
 
             for(Warehouse warehouse: inputWarehouses){
-                if(warehouse.product.equals(inputOrder.product) && warehouse.quantity == inputOrder.quantity){
-                    return warehouse.name + " " + warehouse.product + " " + warehouse.quantity;
+                if(warehouse.product.equals(inputOrder.product) && warehouse.quantity >= inputOrder.quantity){
+                    return warehouse.name + " " + warehouse.product + " " + inputOrder.quantity;
                 }
             }
 

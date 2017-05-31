@@ -24,7 +24,11 @@ public class RoutingLogic {
             String splittedUserInputLine[] = input.split(" ");
 
             if(isAWarehouse(splittedUserInputLine[0])){
-                inputWarehouses.add(new Warehouse(splittedUserInputLine[0], splittedUserInputLine[1], Integer.parseInt(splittedUserInputLine[2])));
+                Warehouse warehouse = DefaultWarehouses.defaultWarehouseWithName(splittedUserInputLine[0]);
+                warehouse.product = splittedUserInputLine[1];
+                warehouse.quantity = Integer.parseInt(splittedUserInputLine[2]);
+
+                inputWarehouses.add(warehouse);
                 System.out.print("Warehouse: " +splittedUserInputLine[0]+splittedUserInputLine[1]+splittedUserInputLine[2] + "\n");
 
             } else if(isAShippingMethod(splittedUserInputLine[0].split(",")[0])) {
@@ -33,7 +37,11 @@ public class RoutingLogic {
                 System.out.print("Shipping method: " +splittedUserInputLine[0]+splittedUserInputLine[1]+"\n");
 
             } else if(splittedUserInputLine.length >= 4){
-                inputWarehouses.add(new Warehouse(splittedUserInputLine[0] + " " + splittedUserInputLine[1], splittedUserInputLine[2], Integer.parseInt(splittedUserInputLine[3])));
+                Warehouse warehouse = DefaultWarehouses.defaultWarehouseWithName(splittedUserInputLine[0] + " " + splittedUserInputLine[1]);
+                warehouse.product = splittedUserInputLine[2];
+                warehouse.quantity = Integer.parseInt(splittedUserInputLine[3]);
+
+                inputWarehouses.add(warehouse);
                 System.out.print("Warehouse: " +splittedUserInputLine[0]+splittedUserInputLine[1]+splittedUserInputLine[2] + "\n");
 
             } else if(splittedUserInputLine.length >= 2){
@@ -47,7 +55,7 @@ public class RoutingLogic {
 //            }
 
             for(Warehouse warehouse: inputWarehouses){
-                if(warehouse.product.equals(inputOrder.product) && warehouse.quantity >= inputOrder.quantity){
+                if(warehouse.product.equals(inputOrder.product) && warehouse.quantity >= inputOrder.quantity && warehouse.shippingMethods.contains(inputOrder.shippingMethod)){
                     return warehouse.name + " " + warehouse.product + " " + inputOrder.quantity;
                 }
             }

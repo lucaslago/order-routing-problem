@@ -32,4 +32,13 @@ public class DefaultWarehouses {
 
         return defaultWarehouses;
     }
+
+    public static Warehouse defaultWarehouseWithName(String warehouseName){
+        for(Warehouse warehouse: DefaultWarehouses.getDefaultWarehouses()){
+            if(warehouse.name.equals(warehouseName)){
+                return warehouse;
+            }
+        }
+        return null;
+    }
 }

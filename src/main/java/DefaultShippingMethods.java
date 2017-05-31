@@ -7,7 +7,7 @@ public class DefaultShippingMethods {
         List<String> defaultShippingMethods = new ArrayList<>();
 
         defaultShippingMethods.add("DHL");
-        defaultShippingMethods.add("Fedex");
+        defaultShippingMethods.add("FedEx");
         defaultShippingMethods.add("UPS");
 
         return defaultShippingMethods;

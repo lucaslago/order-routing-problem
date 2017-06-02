@@ -52,9 +52,12 @@ public class RoutingLogic {
             for(Warehouse inputWarehouse: inputWarehouses){
                 System.out.println(inputWarehouse.product + " = " + inputOrder.products.get(cont).name);
                 System.out.println(inputWarehouse.quantity + " = " + inputOrder.products.get(cont).quantity);
-                System.out.println(inputWarehouse.shippingMethods + " = " +inputOrder.shippingMethod);
+                System.out.println(inputWarehouse.shippingMethods + " = " + inputOrder.shippingMethod);
 
                 if(inputWarehouse.product.equals(inputOrder.products.get(cont).name) && inputWarehouse.quantity >= inputOrder.products.get(cont).quantity && inputWarehouse.shippingMethods.contains(inputOrder.shippingMethod)){
+                    if(inputWarehouse.capacity >= inputOrder.products.get(cont).quantity){
+
+                    }
                     warehouseOutput += inputWarehouse.name + " " + inputWarehouse.product + " " + inputOrder.products.get(cont).quantity;
                     if(cont != inputOrder.products.size()-1){
                         warehouseOutput += "\n";

@@ -5,10 +5,12 @@ public class Warehouse {
     String product;
     int quantity;
     List<String> shippingMethods;
+    int capacity;
 
-    public Warehouse(String name, List<String> shippingMethods){
+    public Warehouse(String name, List<String> shippingMethods, int capacity){
         this.name = name;
         this.shippingMethods = shippingMethods;
+        this.capacity = capacity;
     }
 
     public Warehouse(String name, String product, int quantity){

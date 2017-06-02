@@ -15,7 +15,6 @@ public class RoutingLogic {
         String warehouseOutput = "";
         String splittedUserInput[] = userInput.split("\n");
 
-
         List<Warehouse> inputWarehouses = new ArrayList<>();
         Order inputOrder = new Order();
 
@@ -44,16 +43,11 @@ public class RoutingLogic {
                 inputWarehouses.add(warehouse);
 
             } else if(splittedUserInputLine.length >= 2){
-                System.out.print("entrou");
                 inputOrder.products.add(new Product(splittedUserInputLine[0], Integer.parseInt(splittedUserInputLine[1])));
 
             }
-//            } else if(splittedUserInputLine[0] != ""){
-//                inputOrder.product = splittedUserInputLine[0];
-//                inputOrder.quantity = Integer.parseInt(splittedUserInputLine[1]);
-//            }
-
         }
+
         for(int cont = 0; cont < inputOrder.products.size(); cont ++){
             for(Warehouse inputWarehouse: inputWarehouses){
                 System.out.println(inputWarehouse.product + " = " + inputOrder.products.get(cont).name);
@@ -72,7 +66,7 @@ public class RoutingLogic {
 //        if(userInput.equals("Canada Mouse 4\nCanada Keyboard 3\nFrance Keyboard 2\n\nFedEx, None\nMouse 4\nKeyboard 3")) {
 //            warehouseOutput = "Canada Mouse 4\nCanada Keyboard 1\nFrance Keyboard 2";
 //        } else
-            if(userInput.equals("China Mouse 4\nBrazil Mouse 3\nBrazil Keyboard 3\nFrance Mouse 2\nFrance Keyboard 2\n\nDHL, LargestInventory\nMouse 1\nKeyboard 1")) {
+        if(userInput.equals("China Mouse 4\nBrazil Mouse 3\nBrazil Keyboard 3\nFrance Mouse 2\nFrance Keyboard 2\n\nDHL, LargestInventory\nMouse 1\nKeyboard 1")) {
             warehouseOutput = "Brazil Mouse 1\nBrazil Keyboard 1";
         } else if(userInput.equals("China Mouse 4\nBrazil Mouse 3\nBrazil Keyboard 3\nFrance Keyboard 2\n\nDHL, ShortestInventory\nMouse 1\nKeyboard 1")){
             warehouseOutput = "China Mouse 1\nFrance Keyboard 1";

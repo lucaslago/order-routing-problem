@@ -8,17 +8,17 @@ public class DefaultWarehouses {
 
         List<String> brazilShippingMethods = new ArrayList<>();
         brazilShippingMethods.add("DHL");
-        brazilShippingMethods.add("Fedex");
+        brazilShippingMethods.add("FedEx");
         defaultWarehouses.add(new Warehouse("Brazil", brazilShippingMethods));
 
         List<String> franceShippingMethods = new ArrayList<>();
         franceShippingMethods.add("DHL");
-        franceShippingMethods.add("Fedex");
+        franceShippingMethods.add("FedEx");
         franceShippingMethods.add("UPS");
         defaultWarehouses.add(new Warehouse("France", franceShippingMethods));
 
         List<String> southAfricaShippingMethods = new ArrayList<>();
-        southAfricaShippingMethods.add("Fedex");
+        southAfricaShippingMethods.add("FedEx");
         southAfricaShippingMethods.add("UPS");
         defaultWarehouses.add(new Warehouse("South Africa", southAfricaShippingMethods));
 
@@ -27,7 +27,7 @@ public class DefaultWarehouses {
         defaultWarehouses.add(new Warehouse("China", chinaShippingMethods));
 
         List<String> canadaShippingMethods = new ArrayList<>();
-        canadaShippingMethods.add("Fedex");
+        canadaShippingMethods.add("FedEx");
         defaultWarehouses.add(new Warehouse("Canada", canadaShippingMethods));
 
         return defaultWarehouses;

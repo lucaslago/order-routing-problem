@@ -16,4 +16,8 @@ public class Warehouse {
         this.product = product;
         this.quantity = quantity;
     }
+
+    public Warehouse(){
+
+    }
 }

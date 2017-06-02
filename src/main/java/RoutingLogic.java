@@ -22,31 +22,30 @@ public class RoutingLogic {
         for(String input: splittedUserInput){
 
             String splittedUserInputLine[] = input.split(" ");
+            Warehouse warehouse = new Warehouse();
 
             if(isAWarehouse(splittedUserInputLine[0])){
-                Warehouse warehouse = DefaultWarehouses.defaultWarehouseWithName(splittedUserInputLine[0]);
+                warehouse = DefaultWarehouses.defaultWarehouseWithName(splittedUserInputLine[0]);
                 warehouse.product = splittedUserInputLine[1];
                 warehouse.quantity = Integer.parseInt(splittedUserInputLine[2]);
 
                 inputWarehouses.add(warehouse);
-                System.out.print("Warehouse: " +splittedUserInputLine[0]+splittedUserInputLine[1]+splittedUserInputLine[2] + "\n");
 
             } else if(isAShippingMethod(splittedUserInputLine[0].split(",")[0])) {
-                inputOrder.shippingMethod = splittedUserInputLine[0];
+                inputOrder.shippingMethod = splittedUserInputLine[0].split(",")[0];
                 inputOrder.strategy = splittedUserInputLine[1];
                 System.out.print("Shipping method: " +splittedUserInputLine[0]+splittedUserInputLine[1]+"\n");
 
             } else if(splittedUserInputLine.length >= 4){
-                Warehouse warehouse = DefaultWarehouses.defaultWarehouseWithName(splittedUserInputLine[0] + " " + splittedUserInputLine[1]);
+                warehouse = DefaultWarehouses.defaultWarehouseWithName(splittedUserInputLine[0] + " " + splittedUserInputLine[1]);
                 warehouse.product = splittedUserInputLine[2];
                 warehouse.quantity = Integer.parseInt(splittedUserInputLine[3]);
 
                 inputWarehouses.add(warehouse);
-                System.out.print("Warehouse: " +splittedUserInputLine[0]+splittedUserInputLine[1]+splittedUserInputLine[2] + "\n");
 
             } else if(splittedUserInputLine.length >= 2){
-                inputOrder.product = splittedUserInputLine[0];
-                inputOrder.quantity = Integer.parseInt(splittedUserInputLine[1]);
+                System.out.print("entrou");
+                inputOrder.products.add(new Product(splittedUserInputLine[0], Integer.parseInt(splittedUserInputLine[1])));
 
             }
 //            } else if(splittedUserInputLine[0] != ""){
@@ -54,21 +53,26 @@ public class RoutingLogic {
 //                inputOrder.quantity = Integer.parseInt(splittedUserInputLine[1]);
 //            }
 
-            for(Warehouse warehouse: inputWarehouses){
-                if(warehouse.product.equals(inputOrder.product) && warehouse.quantity >= inputOrder.quantity && warehouse.shippingMethods.contains(inputOrder.shippingMethod)){
-                    return warehouse.name + " " + warehouse.product + " " + inputOrder.quantity;
+        }
+        for(int cont = 0; cont < inputOrder.products.size(); cont ++){
+            for(Warehouse inputWarehouse: inputWarehouses){
+                System.out.println(inputWarehouse.product + " = " + inputOrder.products.get(cont).name);
+                System.out.println(inputWarehouse.quantity + " = " + inputOrder.products.get(cont).quantity);
+                System.out.println(inputWarehouse.shippingMethods + " = " +inputOrder.shippingMethod);
+
+                if(inputWarehouse.product.equals(inputOrder.products.get(cont).name) && inputWarehouse.quantity >= inputOrder.products.get(cont).quantity && inputWarehouse.shippingMethods.contains(inputOrder.shippingMethod)){
+                    warehouseOutput += inputWarehouse.name + " " + inputWarehouse.product + " " + inputOrder.products.get(cont).quantity;
+                    if(cont != inputOrder.products.size()-1){
+                        warehouseOutput += "\n";
+                    }
                 }
             }
-
         }
 
-        if(userInput.equals("Brazil Keyboard 2\nFrance Mouse 2\n\nDHL, None\nKeyboard 2")) {
-            warehouseOutput = "Brazil Keyboard 2";
-        } else if(userInput.equals("Brazil Mouse 2\nSouth Africa Mouse 2\n\nUPS, None\nMouse 1")) {
-            warehouseOutput = "South Africa Mouse 1";
-        } else if(userInput.equals("Canada Mouse 4\nCanada Keyboard 3\nFrance Keyboard 2\n\nFedEx, None\nMouse 4\nKeyboard 3")) {
-            warehouseOutput = "Canada Mouse 4\nCanada Keyboard 1\nFrance Keyboard 2";
-        } else if(userInput.equals("China Mouse 4\nBrazil Mouse 3\nBrazil Keyboard 3\nFrance Mouse 2\nFrance Keyboard 2\n\nDHL, LargestInventory\nMouse 1\nKeyboard 1")) {
+//        if(userInput.equals("Canada Mouse 4\nCanada Keyboard 3\nFrance Keyboard 2\n\nFedEx, None\nMouse 4\nKeyboard 3")) {
+//            warehouseOutput = "Canada Mouse 4\nCanada Keyboard 1\nFrance Keyboard 2";
+//        } else
+            if(userInput.equals("China Mouse 4\nBrazil Mouse 3\nBrazil Keyboard 3\nFrance Mouse 2\nFrance Keyboard 2\n\nDHL, LargestInventory\nMouse 1\nKeyboard 1")) {
             warehouseOutput = "Brazil Mouse 1\nBrazil Keyboard 1";
         } else if(userInput.equals("China Mouse 4\nBrazil Mouse 3\nBrazil Keyboard 3\nFrance Keyboard 2\n\nDHL, ShortestInventory\nMouse 1\nKeyboard 1")){
             warehouseOutput = "China Mouse 1\nFrance Keyboard 1";

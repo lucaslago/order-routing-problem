@@ -3,7 +3,7 @@ import java.util.List;
 
 public class ShippingMethodFabric {
 
-    public static List<String> getDefaultShippingMethods(){
+    public static List<String> getShippingMethods(){
         List<String> defaultShippingMethods = new ArrayList<>();
 
         defaultShippingMethods.add("DHL");

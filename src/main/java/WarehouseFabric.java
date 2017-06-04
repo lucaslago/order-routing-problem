@@ -1,48 +1,41 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class WarehouseFabric {
-//
-//    Map<String, MyObject> map = new HashMap<String, MyObject>();
-//    // Fill map
-//    MyObject getIt = map.get("peter");
 
-    public static List<Warehouse> getDefaultWarehouses(){
-        List<Warehouse> defaultWarehouses = new ArrayList<>();
+    public static Map<String, Warehouse> getWarehouses(){
+        Map<String, Warehouse> defaultWarehouses = new HashMap<>();
 
         List<String> brazilShippingMethods = new ArrayList<>();
         brazilShippingMethods.add("DHL");
         brazilShippingMethods.add("FedEx");
-        defaultWarehouses.add(new Warehouse("Brazil", brazilShippingMethods, 15));
+        defaultWarehouses.put("Brazil", new Warehouse("Brazil", brazilShippingMethods, 15));
 
         List<String> franceShippingMethods = new ArrayList<>();
         franceShippingMethods.add("DHL");
         franceShippingMethods.add("FedEx");
         franceShippingMethods.add("UPS");
-        defaultWarehouses.add(new Warehouse("France", franceShippingMethods, 10));
+        defaultWarehouses.put("France", new Warehouse("France", franceShippingMethods, 10));
 
         List<String> southAfricaShippingMethods = new ArrayList<>();
         southAfricaShippingMethods.add("FedEx");
         southAfricaShippingMethods.add("UPS");
-        defaultWarehouses.add(new Warehouse("South Africa", southAfricaShippingMethods, 10));
+        defaultWarehouses.put("South Africa", new Warehouse("South Africa", southAfricaShippingMethods, 10));
 
         List<String> chinaShippingMethods = new ArrayList<>();
         chinaShippingMethods.add("DHL");
-        defaultWarehouses.add(new Warehouse("China", chinaShippingMethods, 20));
+        defaultWarehouses.put("China", new Warehouse("China", chinaShippingMethods, 20));
 
         List<String> canadaShippingMethods = new ArrayList<>();
         canadaShippingMethods.add("FedEx");
-        defaultWarehouses.add(new Warehouse("Canada", canadaShippingMethods, 5));
+        defaultWarehouses.put("Canada", new Warehouse("Canada", canadaShippingMethods, 5));
 
         return defaultWarehouses;
     }
 
     public static Warehouse defaultWarehouseWithName(String warehouseName){
-        for(Warehouse warehouse: WarehouseFabric.getDefaultWarehouses()){
-            if(warehouse.name.equals(warehouseName)){
-                return warehouse;
-            }
-        }
-        return null;
+        return WarehouseFabric.getWarehouses().get(warehouseName);
     }
 }

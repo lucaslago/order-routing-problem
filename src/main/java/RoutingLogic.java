@@ -4,11 +4,11 @@ import java.util.List;
 public class RoutingLogic {
 
     public boolean isAWarehouse(String warehouseName){
-        return WarehouseFabric.getDefaultWarehouses().stream().anyMatch(w -> w.name.equals(warehouseName));
+        return WarehouseFabric.defaultWarehouseWithName(warehouseName) != null;
     }
 
     public boolean isAShippingMethod(String shippingMethodTitle){
-        return ShippingMethodFabric.getDefaultShippingMethods().contains(shippingMethodTitle);
+        return ShippingMethodFabric.getShippingMethods().contains(shippingMethodTitle);
     }
 
     public String fulfillOrder(String userInput) {

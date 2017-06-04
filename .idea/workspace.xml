@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f360194-0488-431a-a5bf-9eca12d0a20e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/DefaultWarehouses.java" afterPath="$PROJECT_DIR$/src/main/java/DefaultWarehouses.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/RoutingLogic.java" afterPath="$PROJECT_DIR$/src/main/java/RoutingLogic.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ShippingMethodFabric.java" afterPath="$PROJECT_DIR$/src/main/java/ShippingMethodFabric.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/WarehouseFabric.java" afterPath="$PROJECT_DIR$/src/main/java/WarehouseFabric.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -81,11 +84,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RoutingLogic.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RoutingLogic.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/RoutingLogic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="37" lean-forward="false" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+            <state relative-caret-position="320">
+              <caret line="35" column="50" lean-forward="false" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,11 +96,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultWarehouses.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/DefaultWarehouses.java">
+      <file leaf-file-name="WarehouseFabric.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/WarehouseFabric.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="60">
+              <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShippingMethodFabric.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ShippingMethodFabric.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="5" column="34" lean-forward="false" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -106,8 +119,8 @@
       <file leaf-file-name="RoutinLogicTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/RoutinLogicTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="41" column="29" lean-forward="true" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+            <state relative-caret-position="497">
+              <caret line="41" column="35" lean-forward="true" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -493,8 +506,10 @@
         <option value="$PROJECT_DIR$/src/main/java/Warehouse.java" />
         <option value="$PROJECT_DIR$/src/main/java/Product.java" />
         <option value="$PROJECT_DIR$/src/main/java/Order.java" />
-        <option value="$PROJECT_DIR$/src/main/java/RoutingLogic.java" />
         <option value="$PROJECT_DIR$/src/main/java/DefaultWarehouses.java" />
+        <option value="$PROJECT_DIR$/src/main/java/WarehouseFabric.java" />
+        <option value="$PROJECT_DIR$/src/main/java/RoutingLogic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ShippingMethodFabric.java" />
       </list>
     </option>
   </component>
@@ -627,7 +642,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="gradle.experimental" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -648,7 +663,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RoutinLogicTest.returnExpectedOutputForStandardOrderInput">
+  <component name="RunManager" selected="JUnit.RoutinLogicTest.returnExpectedOutputForCapacityTestingOrderInput">
     <configuration default="false" name="RoutinLogicTest.returnExpectedOutputForStandardOrderInput" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="OrderRoutingProblem_test" />
@@ -976,9 +991,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.RoutinLogicTest.returnExpectedOutputForStandardOrderInput" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.RoutinLogicTest.returnExpectedOutputForCapacityTestingOrderInput" />
         <item index="1" class="java.lang.String" itemvalue="JUnit.RoutinLogicTest.returnExpectedOutputForShippingMethodTestingOrderInput" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.RoutinLogicTest.returnExpectedOutputForCapacityTestingOrderInput" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.RoutinLogicTest.returnExpectedOutputForStandardOrderInput" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.RoutinLogicTest" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.RoutinLogicTest.returnExpectedOutputForLargestInventoryPriorityOrderInput" />
       </list>
@@ -1009,25 +1024,22 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RoutinLogicTest_returnExpectedOutputForCapacityTestingOrderInput - 2017.06.01 at 21h 40m 16s.xml">
-      <configuration name="RoutinLogicTest.returnExpectedOutputForCapacityTestingOrderInput" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RoutinLogicTest_returnExpectedOutputForCapacityTestingOrderInput - 2017.06.01 at 21h 41m 04s.xml">
-      <configuration name="RoutinLogicTest.returnExpectedOutputForCapacityTestingOrderInput" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RoutinLogicTest_returnExpectedOutputForCapacityTestingOrderInput - 2017.06.01 at 22h 02m 06s.xml">
-      <configuration name="RoutinLogicTest.returnExpectedOutputForCapacityTestingOrderInput" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="RoutinLogicTest_returnExpectedOutputForCapacityTestingOrderInput - 2017.06.01 at 22h 04m 34s.xml">
       <configuration name="RoutinLogicTest.returnExpectedOutputForCapacityTestingOrderInput" configurationId="JUnit" />
     </history-entry>
     <history-entry file="RoutinLogicTest_returnExpectedOutputForCapacityTestingOrderInput - 2017.06.01 at 22h 11m 27s.xml">
       <configuration name="RoutinLogicTest.returnExpectedOutputForCapacityTestingOrderInput" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="RoutinLogicTest_returnExpectedOutputForCapacityTestingOrderInput - 2017.06.04 at 12h 48m 56s.xml">
+      <configuration name="RoutinLogicTest.returnExpectedOutputForCapacityTestingOrderInput" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="RoutinLogicTest_returnExpectedOutputForShippingMethodTestingOrderInput - 2017.06.01 at 22h 01m 54s.xml">
       <configuration name="RoutinLogicTest.returnExpectedOutputForShippingMethodTestingOrderInput" configurationId="JUnit" />
     </history-entry>
     <history-entry file="RoutinLogicTest_returnExpectedOutputForShippingMethodTestingOrderInput - 2017.06.01 at 22h 25m 20s.xml">
+      <configuration name="RoutinLogicTest.returnExpectedOutputForShippingMethodTestingOrderInput" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RoutinLogicTest_returnExpectedOutputForShippingMethodTestingOrderInput - 2017.06.04 at 12h 48m 49s.xml">
       <configuration name="RoutinLogicTest.returnExpectedOutputForShippingMethodTestingOrderInput" configurationId="JUnit" />
     </history-entry>
     <history-entry file="RoutinLogicTest_returnExpectedOutputForStandardOrderInput - 2017.06.01 at 22h 00m 24s.xml">
@@ -1039,9 +1051,13 @@
     <history-entry file="RoutinLogicTest_returnExpectedOutputForStandardOrderInput - 2017.06.01 at 22h 25m 25s.xml">
       <configuration name="RoutinLogicTest.returnExpectedOutputForStandardOrderInput" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="RoutinLogicTest_returnExpectedOutputForStandardOrderInput - 2017.06.04 at 12h 48m 44s.xml">
+      <configuration name="RoutinLogicTest.returnExpectedOutputForStandardOrderInput" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1052,13 +1068,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39442816" sideWeight="0.23101777" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937294" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33521444" sideWeight="0.4771033" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33431086" sideWeight="0.4771033" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19354838" sideWeight="0.76898223" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11876833" sideWeight="0.76898223" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22374798" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22374798" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19628432" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1451,25 +1467,10 @@
     </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/NumberFormatException.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/Integer.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/DefaultShippingMethods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="40" lean-forward="false" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Warehouse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/RoutinLogicTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="41" column="29" lean-forward="true" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1479,9 +1480,9 @@
         <state relative-caret-position="135">
           <caret line="9" column="38" lean-forward="false" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#168#169#0" expanded="true" />
-            <element signature="e#217#218#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#168#169#0" expanded="false" />
+            <element signature="e#217#218#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1494,21 +1495,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/RoutingLogic.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/WarehouseFabric.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="37" lean-forward="false" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DefaultWarehouses.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ShippingMethodFabric.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="5" column="34" lean-forward="false" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RoutinLogicTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="41" column="35" lean-forward="true" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/RoutingLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="35" column="50" lean-forward="false" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class DefaultShippingMethods {
+public class ShippingMethodFabric {
 
     public static List<String> getDefaultShippingMethods(){
         List<String> defaultShippingMethods = new ArrayList<>();

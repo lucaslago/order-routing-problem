@@ -4,11 +4,11 @@ import java.util.List;
 public class RoutingLogic {
 
     public boolean isAWarehouse(String warehouseName){
-        return DefaultWarehouses.getDefaultWarehouses().stream().anyMatch(w -> w.name.equals(warehouseName));
+        return WarehouseFabric.getDefaultWarehouses().stream().anyMatch(w -> w.name.equals(warehouseName));
     }
 
     public boolean isAShippingMethod(String shippingMethodTitle){
-        return DefaultShippingMethods.getDefaultShippingMethods().contains(shippingMethodTitle);
+        return ShippingMethodFabric.getDefaultShippingMethods().contains(shippingMethodTitle);
     }
 
     public String fulfillOrder(String userInput) {
@@ -24,7 +24,7 @@ public class RoutingLogic {
             Warehouse warehouse = new Warehouse();
 
             if(isAWarehouse(splittedUserInputLine[0])){
-                warehouse = DefaultWarehouses.defaultWarehouseWithName(splittedUserInputLine[0]);
+                warehouse = WarehouseFabric.defaultWarehouseWithName(splittedUserInputLine[0]);
                 warehouse.product = splittedUserInputLine[1];
                 warehouse.quantity = Integer.parseInt(splittedUserInputLine[2]);
 
@@ -36,7 +36,7 @@ public class RoutingLogic {
                 System.out.print("Shipping method: " +splittedUserInputLine[0]+splittedUserInputLine[1]+"\n");
 
             } else if(splittedUserInputLine.length >= 4){
-                warehouse = DefaultWarehouses.defaultWarehouseWithName(splittedUserInputLine[0] + " " + splittedUserInputLine[1]);
+                warehouse = WarehouseFabric.defaultWarehouseWithName(splittedUserInputLine[0] + " " + splittedUserInputLine[1]);
                 warehouse.product = splittedUserInputLine[2];
                 warehouse.quantity = Integer.parseInt(splittedUserInputLine[3]);
 

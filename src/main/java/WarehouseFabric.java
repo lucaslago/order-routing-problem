@@ -1,7 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class DefaultWarehouses {
+public class WarehouseFabric {
+//
+//    Map<String, MyObject> map = new HashMap<String, MyObject>();
+//    // Fill map
+//    MyObject getIt = map.get("peter");
 
     public static List<Warehouse> getDefaultWarehouses(){
         List<Warehouse> defaultWarehouses = new ArrayList<>();
@@ -34,7 +38,7 @@ public class DefaultWarehouses {
     }
 
     public static Warehouse defaultWarehouseWithName(String warehouseName){
-        for(Warehouse warehouse: DefaultWarehouses.getDefaultWarehouses()){
+        for(Warehouse warehouse: WarehouseFabric.getDefaultWarehouses()){
             if(warehouse.name.equals(warehouseName)){
                 return warehouse;
             }

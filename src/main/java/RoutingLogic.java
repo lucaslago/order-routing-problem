@@ -11,6 +11,10 @@ public class RoutingLogic {
         return ShippingMethodFabric.getShippingMethods().contains(shippingMethodTitle);
     }
 
+    public boolean isWarehouseInArray(String warehouseName, List<Warehouse> array){
+        return array.stream().anyMatch((warehouse -> warehouse.name.equals(warehouseName)));
+    }
+
     public String fulfillOrder(String userInput) {
         String warehouseOutput = "";
         String splittedUserInput[] = userInput.split("\n");
@@ -25,6 +29,9 @@ public class RoutingLogic {
 
             if(isAWarehouse(splittedUserInputLine[0])){
                 warehouse = WarehouseFabric.defaultWarehouseWithName(splittedUserInputLine[0]);
+                if(isWarehouseInArray(splittedUserInputLine[0], inputWarehouses)){
+
+                }
                 warehouse.product = splittedUserInputLine[1];
                 warehouse.quantity = Integer.parseInt(splittedUserInputLine[2]);
 

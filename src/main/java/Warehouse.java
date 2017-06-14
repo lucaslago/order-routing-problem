@@ -1,9 +1,9 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Warehouse {
     String name;
-    String product;
-    int quantity;
+    List<Product> products;
     List<String> shippingMethods;
     int capacity;
 
@@ -11,12 +11,12 @@ public class Warehouse {
         this.name = name;
         this.shippingMethods = shippingMethods;
         this.capacity = capacity;
+        this.products = new ArrayList<>();
     }
 
-    public Warehouse(String name, String product, int quantity){
+    public Warehouse(String name, List<Product> products){
         this.name = name;
-        this.product = product;
-        this.quantity = quantity;
+        this.products = products;
     }
 
     public Warehouse(){

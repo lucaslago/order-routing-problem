@@ -1,4 +1,8 @@
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -15,6 +19,14 @@ public class RoutinLogicTest {
     @Test
     public void ifIsAShippingMethodReturnsTrue(){
         boolean result = routingLogic.isAShippingMethod("DHL");
+        assertThat(result, equalTo(true));
+    }
+
+    @Test
+    public void ifIsWarehouseInArrayReturnsTrue(){
+        List<Warehouse> warehouses = new ArrayList<>();
+        warehouses.add(new Warehouse("Brazil", null, 0));
+        boolean result = routingLogic.isWarehouseInArray("Brazil", warehouses);
         assertThat(result, equalTo(true));
     }
 

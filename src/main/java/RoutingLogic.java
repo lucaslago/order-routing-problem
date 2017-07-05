@@ -12,7 +12,7 @@ public class RoutingLogic {
     }
 
     public boolean isWarehouseInArray(String warehouseName, List<Warehouse> array){
-        return array.stream().anyMatch((warehouse -> warehouse.name.equals(warehouseName)));
+        return array.stream().anyMatch((warehouse -> warehouse.getName().equals(warehouseName)));
     }
 
     public String formatStringList(List<String> stringList){
@@ -44,13 +44,13 @@ public class RoutingLogic {
                 if (isAWarehouse(splittedUserInputLine[0])) {
                     if(isWarehouseInArray(splittedUserInputLine[0], inputWarehouses)){
                         for(Warehouse warehouseInArray: inputWarehouses){
-                            if (warehouseInArray.name.equals(splittedUserInputLine[0])){
-                                warehouseInArray.products.add(new Product(splittedUserInputLine[1], Integer.parseInt(splittedUserInputLine[2])));
+                            if (warehouseInArray.getName().equals(splittedUserInputLine[0])){
+                                warehouseInArray.getProducts().add(new Product(splittedUserInputLine[1], Integer.parseInt(splittedUserInputLine[2])));
                             }
                         }
                     } else {
                         warehouse = WarehouseFabric.defaultWarehouseWithName(splittedUserInputLine[0]);
-                        warehouse.products.add(new Product(splittedUserInputLine[1], Integer.parseInt(splittedUserInputLine[2])));
+                        warehouse.getProducts().add(new Product(splittedUserInputLine[1], Integer.parseInt(splittedUserInputLine[2])));
 
                         if(warehouse != null){
                             inputWarehouses.add(warehouse);
@@ -61,14 +61,14 @@ public class RoutingLogic {
 
                     if(isWarehouseInArray(splittedUserInputLine[0] + " " + splittedUserInputLine[1], inputWarehouses)){
                         for(Warehouse warehouseInArray: inputWarehouses){
-                            if (warehouseInArray.name.equals(splittedUserInputLine[0] + " " + splittedUserInputLine[1])){
-                                warehouseInArray.products.add(new Product(splittedUserInputLine[2], Integer.parseInt(splittedUserInputLine[3])));
+                            if (warehouseInArray.getName().equals(splittedUserInputLine[0] + " " + splittedUserInputLine[1])){
+                                warehouseInArray.getProducts().add(new Product(splittedUserInputLine[2], Integer.parseInt(splittedUserInputLine[3])));
                             }
                         }
 
                     } else {
                         warehouse = WarehouseFabric.defaultWarehouseWithName(splittedUserInputLine[0] + " " + splittedUserInputLine[1]);
-                        warehouse.products.add(new Product(splittedUserInputLine[2], Integer.parseInt(splittedUserInputLine[3])));
+                        warehouse.getProducts().add(new Product(splittedUserInputLine[2], Integer.parseInt(splittedUserInputLine[3])));
 
                         if(warehouse != null){
                             inputWarehouses.add(warehouse);
@@ -76,42 +76,42 @@ public class RoutingLogic {
                     }
 
                 } else if (isAShippingMethod(splittedUserInputLine[0].split(",")[0])) {
-                    inputOrder.shippingMethod = splittedUserInputLine[0].split(",")[0];
-                    inputOrder.strategy = splittedUserInputLine[1];
+                    inputOrder.setShippingMethod(splittedUserInputLine[0].split(",")[0]);
+                    inputOrder.setStrategy(splittedUserInputLine[1]);
 
                 } else {
-                    inputOrder.products.add(new Product(splittedUserInputLine[0], Integer.parseInt(splittedUserInputLine[1])));
+                    inputOrder.getProducts().add(new Product(splittedUserInputLine[0], Integer.parseInt(splittedUserInputLine[1])));
 
                 }
             }
         }
 
-        for(Product inputOrderProduct: inputOrder.products){
+        for(Product inputOrderProduct: inputOrder.getProducts()){
 
             for(Warehouse inputWarehouse: inputWarehouses){
 
-                for(Product warehouseProduct: inputWarehouse.products){
+                for(Product warehouseProduct: inputWarehouse.getProducts()){
 
-                    if(warehouseProduct.name.equals(inputOrderProduct.name)
-                            && warehouseProduct.quantity >= inputOrderProduct.quantity
-                            && inputWarehouse.shippingMethods.contains(inputOrder.shippingMethod)){
+                    if(warehouseProduct.getName().equals(inputOrderProduct.getName())
+                            && warehouseProduct.getQuantity() >= inputOrderProduct.getQuantity()
+                            && inputWarehouse.getShippingMethods().contains(inputOrder.getShippingMethod())){
 
                         int quantityLeft = 0;
                         int quantityUsed = 0;
 
-                        if(inputWarehouse.capacity >= inputOrderProduct.quantity){
-                            inputWarehouse.capacity -= inputOrderProduct.quantity;
-                            quantityUsed = inputOrderProduct.quantity;
+                        if(inputWarehouse.getCapacity() >= inputOrderProduct.getQuantity()){
+                            inputWarehouse.setCapacity(inputWarehouse.getCapacity() - inputOrderProduct.getQuantity());
+                            quantityUsed = inputOrderProduct.getQuantity();
 
                         } else {
-                            quantityLeft = inputOrderProduct.quantity - inputWarehouse.capacity;
-                            quantityUsed = inputOrderProduct.quantity - quantityLeft;
+                            quantityLeft = inputOrderProduct.getQuantity() - inputWarehouse.getCapacity();
+                            quantityUsed = inputOrderProduct.getQuantity() - quantityLeft;
 
-                            inputOrderProduct.quantity = quantityLeft;
-                            inputWarehouse.capacity = 0;
+                            inputOrderProduct.setQuantity(quantityLeft);
+                            inputWarehouse.setCapacity(0);
                         }
 
-                        warehouseOutput.add(inputWarehouse.name + " " + warehouseProduct.name + " " + (quantityUsed));
+                        warehouseOutput.add(inputWarehouse.getName() + " " + warehouseProduct.getName() + " " + (quantityUsed));
 
                     }
                 }

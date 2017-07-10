@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,11 +10,6 @@ public class Order {
 
     public Order(){
         this.setProducts(new ArrayList<>());
-    }
-
-    public Order(String shippingMethod, String strategy){
-        this.setShippingMethod(shippingMethod);
-        this.setStrategy(strategy);
     }
 
     public String getShippingMethod() {

@@ -1,4 +1,6 @@
+import model.Warehouse;
 import org.junit.Test;
+import util.InputLineTypeUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,17 +10,17 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class RoutinLogicTest {
 
-    RoutingLogic routingLogic = new RoutingLogic();
+    RoutingLogic routingLogic;
 
     @Test
     public void ifIsAWarehouseReturnsTrue(){
-        boolean result = routingLogic.isAWarehouse("Brazil");
+        boolean result = InputLineTypeUtil.isAWarehouse("Brazil");
         assertThat(result, equalTo(true));
     }
 
     @Test
     public void ifIsAShippingMethodReturnsTrue(){
-        boolean result = routingLogic.isAShippingMethod("DHL");
+        boolean result = InputLineTypeUtil.isAShippingMethod("DHL");
         assertThat(result, equalTo(true));
     }
 
@@ -26,7 +28,7 @@ public class RoutinLogicTest {
     public void ifIsWarehouseInArrayReturnsTrue(){
         List<Warehouse> warehouses = new ArrayList<>();
         warehouses.add(new Warehouse("Brazil", null, 0));
-        boolean result = routingLogic.isWarehouseInArray("Brazil", warehouses);
+        boolean result = InputLineTypeUtil.isWarehouseInArray("Brazil", warehouses);
         assertThat(result, equalTo(true));
     }
 
@@ -36,7 +38,8 @@ public class RoutinLogicTest {
                            "France Mouse 2\n\n" +
                            "DHL, None\n" +
                            "Keyboard 2";
-        String result = routingLogic.fulfillOrder(userInput);
+        routingLogic = new RoutingLogic(userInput);
+        String result = routingLogic.fulfillOrder();
         assertThat(result, equalTo("Brazil Keyboard 2"));
     }
 
@@ -46,7 +49,8 @@ public class RoutinLogicTest {
                            "South Africa Mouse 2\n\n" +
                            "UPS, None\n" +
                            "Mouse 1";
-        String result = routingLogic.fulfillOrder(userInput);
+        routingLogic = new RoutingLogic(userInput);
+        String result = routingLogic.fulfillOrder();
         assertThat(result, equalTo("South Africa Mouse 1"));
     }
 
@@ -58,10 +62,26 @@ public class RoutinLogicTest {
                            "FedEx, None\n" +
                            "Mouse 4\n" +
                            "Keyboard 3";
-        String result = routingLogic.fulfillOrder(userInput);
+        routingLogic = new RoutingLogic(userInput);
+        String result = routingLogic.fulfillOrder();
         assertThat(result, equalTo("Canada Mouse 4\n" +
                                             "Canada Keyboard 1\n" +
                                             "France Keyboard 2"));
     }
 
+    @Test
+    public void returnExpectedOutputForLargestInventoryPriorityOrderInput(){
+        String userInput = "China Mouse 4\n" +
+                            "Brazil Mouse 3\n" +
+                            "Brazil Keyboard 3\n" +
+                            "France Mouse 2\n" +
+                            "France Keyboard 2\n\n" +
+                            "DHL, LargestInventory\n" +
+                            "Mouse 1\n" +
+                            "Keyboard 1";
+        routingLogic = new RoutingLogic(userInput);
+        String result = routingLogic.fulfillOrder();
+        assertThat(result, equalTo("Brazil Mouse 1\n" +
+                                            "Brazil Keyboard 1"));
+    }
 }

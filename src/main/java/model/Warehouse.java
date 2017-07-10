@@ -1,3 +1,7 @@
+package model;
+
+import model.Product;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,15 +16,6 @@ public class Warehouse {
         this.setShippingMethods(shippingMethods);
         this.setCapacity(capacity);
         this.setProducts(new ArrayList<>());
-    }
-
-    public Warehouse(String name, List<Product> products){
-        this.setName(name);
-        this.setProducts(products);
-    }
-
-    public Warehouse(){
-
     }
 
     public String getName() {

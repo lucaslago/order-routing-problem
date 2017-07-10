@@ -1,9 +1,13 @@
+package factory;
+
+import model.Warehouse;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class WarehouseFabric {
+public class WarehouseFactory {
 
     public static Map<String, Warehouse> getWarehouses(){
         Map<String, Warehouse> defaultWarehouses = new HashMap<>();
@@ -36,6 +40,6 @@ public class WarehouseFabric {
     }
 
     public static Warehouse defaultWarehouseWithName(String warehouseName){
-        return WarehouseFabric.getWarehouses().get(warehouseName);
+        return WarehouseFactory.getWarehouses().get(warehouseName);
     }
 }

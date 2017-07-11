@@ -19,8 +19,8 @@ public class RoutingLogic {
     public List<Warehouse> warehousesFromUserInput(String userInput[]){
         List<Warehouse> inputWarehouses = new ArrayList<>();
         Warehouse warehouse;
-        for(String input: userInput) {
 
+        for(String input: userInput) {
             String splittedUserInputLine[] = input.split(" ");
             if (!InputLineTypeUtil.isInputLineEmpty(splittedUserInputLine)) {
                 if (InputLineTypeUtil.isAWarehouse(splittedUserInputLine[0])) {
@@ -40,7 +40,6 @@ public class RoutingLogic {
                     }
 
                 } else if (InputLineTypeUtil.isAWarehouse(splittedUserInputLine[0] + " " + splittedUserInputLine[1])) {
-
                     if (InputLineTypeUtil.isWarehouseInArray(splittedUserInputLine[0] + " " + splittedUserInputLine[1], inputWarehouses)) {
                         for (Warehouse warehouseInArray : inputWarehouses) {
                             if (warehouseInArray.getName().equals(splittedUserInputLine[0] + " " + splittedUserInputLine[1])) {
@@ -79,8 +78,8 @@ public class RoutingLogic {
 
             if (!InputLineTypeUtil.isInputLineEmpty(splittedUserInputLine)) {
 
-                if (InputLineTypeUtil.isAShippingMethod(splittedUserInputLine[0].split(",")[0])) {
-                    inputOrder.setShippingMethod(splittedUserInputLine[0].split(",")[0]);
+                if (InputLineTypeUtil.isAShippingMethod(StringUtil.stringBeforeCommaInLine(splittedUserInputLine[0]))) {
+                    inputOrder.setShippingMethod(StringUtil.stringBeforeCommaInLine(splittedUserInputLine[0]));
                     inputOrder.setStrategy(splittedUserInputLine[1]);
 
                 } else if(!InputLineTypeUtil.isAWarehouse(splittedUserInputLine[0]) && !InputLineTypeUtil.isAWarehouse(splittedUserInputLine[0] + " " + splittedUserInputLine[1])){
@@ -100,8 +99,8 @@ public class RoutingLogic {
                             && warehouseProduct.getQuantity() >= inputOrderProduct.getQuantity()
                             && inputWarehouse.getShippingMethods().contains(inputOrder.getShippingMethod())){
 
-                        int quantityLeft = 0;
-                        int quantityUsed = 0;
+                        int quantityLeft;
+                        int quantityUsed;
 
                         if(!inputOrder.getStrategy().equals("None")){
                             return "Brazil Mouse 1\nBrazil Keyboard 1";

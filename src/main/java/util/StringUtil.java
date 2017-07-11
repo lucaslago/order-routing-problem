@@ -3,6 +3,7 @@ package util;
 import java.util.List;
 
 public class StringUtil {
+
     public static String formatStringList(List<String> stringList){
         String formattedString = "";
         for(int cont = 0; cont < stringList.size(); cont++){
@@ -13,4 +14,9 @@ public class StringUtil {
         }
         return formattedString;
     }
+
+    public static String stringBeforeCommaInLine(String stringLine){
+        return stringLine.split(",")[0];
+    }
+
 }

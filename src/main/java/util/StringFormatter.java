@@ -2,7 +2,7 @@ package util;
 
 import java.util.List;
 
-public class StringUtil {
+public class StringFormatter {
 
     public static String formatStringList(List<String> stringList){
         String formattedString = "";

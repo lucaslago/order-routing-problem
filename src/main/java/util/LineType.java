@@ -6,7 +6,7 @@ import model.Warehouse;
 
 import java.util.List;
 
-public class InputLineTypeUtil {
+public class LineType {
 
     public static boolean isAWarehouse(String warehouseName){
         return WarehouseFactory.defaultWarehouseWithName(warehouseName) != null;

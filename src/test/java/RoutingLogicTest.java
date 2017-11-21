@@ -1,6 +1,6 @@
 import model.Warehouse;
 import org.junit.Test;
-import util.InputLineTypeUtil;
+import util.LineType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,29 +8,9 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class RoutinLogicTest {
+public class RoutingLogicTest {
 
     RoutingLogic routingLogic;
-
-    @Test
-    public void ifIsAWarehouseReturnsTrue(){
-        boolean result = InputLineTypeUtil.isAWarehouse("Brazil");
-        assertThat(result, equalTo(true));
-    }
-
-    @Test
-    public void ifIsAShippingMethodReturnsTrue(){
-        boolean result = InputLineTypeUtil.isAShippingMethod("DHL");
-        assertThat(result, equalTo(true));
-    }
-
-    @Test
-    public void ifIsWarehouseInArrayReturnsTrue(){
-        List<Warehouse> warehouses = new ArrayList<>();
-        warehouses.add(new Warehouse("Brazil", null, 0));
-        boolean result = InputLineTypeUtil.isWarehouseInArray("Brazil", warehouses);
-        assertThat(result, equalTo(true));
-    }
 
     @Test
     public void returnExpectedOutputForStandardOrderInput(){

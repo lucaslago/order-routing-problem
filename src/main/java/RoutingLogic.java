@@ -2,8 +2,8 @@ import factory.WarehouseFactory;
 import model.Order;
 import model.Product;
 import model.Warehouse;
-import util.InputLineTypeUtil;
-import util.StringUtil;
+import util.LineType;
+import util.StringFormatter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +22,9 @@ public class RoutingLogic {
 
         for(String input: userInput) {
             String splittedUserInputLine[] = input.split(" ");
-            if (!InputLineTypeUtil.isInputLineEmpty(splittedUserInputLine)) {
-                if (InputLineTypeUtil.isAWarehouse(splittedUserInputLine[0])) {
-                    if (InputLineTypeUtil.isWarehouseInArray(splittedUserInputLine[0], inputWarehouses)) {
+            if (!LineType.isInputLineEmpty(splittedUserInputLine)) {
+                if (LineType.isAWarehouse(splittedUserInputLine[0])) {
+                    if (LineType.isWarehouseInArray(splittedUserInputLine[0], inputWarehouses)) {
                         for (Warehouse warehouseInArray : inputWarehouses) {
                             if (warehouseInArray.getName().equals(splittedUserInputLine[0])) {
                                 warehouseInArray.getProducts().add(new Product(splittedUserInputLine[1], Integer.parseInt(splittedUserInputLine[2])));
@@ -39,8 +39,8 @@ public class RoutingLogic {
                         }
                     }
 
-                } else if (InputLineTypeUtil.isAWarehouse(splittedUserInputLine[0] + " " + splittedUserInputLine[1])) {
-                    if (InputLineTypeUtil.isWarehouseInArray(splittedUserInputLine[0] + " " + splittedUserInputLine[1], inputWarehouses)) {
+                } else if (LineType.isAWarehouse(splittedUserInputLine[0] + " " + splittedUserInputLine[1])) {
+                    if (LineType.isWarehouseInArray(splittedUserInputLine[0] + " " + splittedUserInputLine[1], inputWarehouses)) {
                         for (Warehouse warehouseInArray : inputWarehouses) {
                             if (warehouseInArray.getName().equals(splittedUserInputLine[0] + " " + splittedUserInputLine[1])) {
                                 warehouseInArray.getProducts().add(new Product(splittedUserInputLine[2], Integer.parseInt(splittedUserInputLine[3])));
@@ -76,13 +76,13 @@ public class RoutingLogic {
 
             String splittedUserInputLine[] = input.split(" ");
 
-            if (!InputLineTypeUtil.isInputLineEmpty(splittedUserInputLine)) {
+            if (!LineType.isInputLineEmpty(splittedUserInputLine)) {
 
-                if (InputLineTypeUtil.isAShippingMethod(StringUtil.stringBeforeCommaInLine(splittedUserInputLine[0]))) {
-                    inputOrder.setShippingMethod(StringUtil.stringBeforeCommaInLine(splittedUserInputLine[0]));
+                if (LineType.isAShippingMethod(StringFormatter.stringBeforeCommaInLine(splittedUserInputLine[0]))) {
+                    inputOrder.setShippingMethod(StringFormatter.stringBeforeCommaInLine(splittedUserInputLine[0]));
                     inputOrder.setStrategy(splittedUserInputLine[1]);
 
-                } else if(!InputLineTypeUtil.isAWarehouse(splittedUserInputLine[0]) && !InputLineTypeUtil.isAWarehouse(splittedUserInputLine[0] + " " + splittedUserInputLine[1])){
+                } else if(!LineType.isAWarehouse(splittedUserInputLine[0]) && !LineType.isAWarehouse(splittedUserInputLine[0] + " " + splittedUserInputLine[1])){
                     inputOrder.getProducts().add(new Product(splittedUserInputLine[0], Integer.parseInt(splittedUserInputLine[1])));
 
                 }
@@ -126,6 +126,6 @@ public class RoutingLogic {
             }
         }
 
-        return StringUtil.formatStringList(warehouseOutput);
+        return StringFormatter.formatStringList(warehouseOutput);
     }
 }
